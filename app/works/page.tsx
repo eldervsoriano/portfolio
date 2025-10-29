@@ -1,15 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// ✅ Load <model-viewer> safely — define only once globally
-if (typeof window !== "undefined" && !customElements.get("model-viewer")) {
-    import("@google/model-viewer");
-}
-
+// ✅ Properly import <model-viewer> only in the browser
 export default function WorksPage() {
+    useEffect(() => {
+        if (typeof window !== "undefined" && !customElements.get("model-viewer")) {
+            import("@google/model-viewer");
+        }
+    }, []);
+
     const projects = [
         {
             name: "Laro ng Bayan",
@@ -99,7 +101,7 @@ export default function WorksPage() {
                             key={idx}
                             className="flex flex-col items-center gap-4 w-[300px] h-[300px] sm:w-[250px] sm:h-[250px] bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700 hover:border-cyan-400 hover:shadow-[0_0_20px_#00ffff] transition-all duration-300 p-3"
                         >
-                            {/* @ts-ignore - Custom element from @google/model-viewer */}
+                            {/* @ts-ignore — custom web component from @google/model-viewer */}
                             <model-viewer
                                 src={model.src}
                                 alt={model.name}
@@ -119,6 +121,7 @@ export default function WorksPage() {
     );
 }
 
+// 🔹 Project Card Component
 function ProjectCard({ project, index }: { project: any; index: number }) {
     const [hovered, setHovered] = React.useState(false);
 
