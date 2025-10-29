@@ -85,10 +85,29 @@ export default function WorksPage() {
                         color: { value: "#00ffff" },
                         opacity: { value: 0.5 },
                         size: { value: { min: 1, max: 3 } },
-                        move: { enable: true, speed: 0.4, random: true, outModes: { default: "out" } },
-                        links: { enable: true, distance: 150, color: "#00ffff", opacity: 0.2, width: 1 },
+                        move: {
+                            enable: true,
+                            speed: 0.4,
+                            random: true,
+                            outModes: { default: "out" },
+                        },
+                        links: {
+                            enable: true,
+                            distance: 150,
+                            color: "#00ffff",
+                            opacity: 0.2,
+                            width: 1,
+                        },
                     },
-                    interactivity: { events: { onHover: { enable: true, mode: "repulse" }, resize: true }, modes: { repulse: { distance: 100, duration: 0.4 } } },
+                    interactivity: {
+                        events: {
+                            onHover: { enable: true, mode: "repulse" },
+                            resize: { enable: true },
+                        },
+                        modes: {
+                            repulse: { distance: 100, duration: 0.4 },
+                        },
+                    },
                     detectRetina: true,
                 }}
                 className="absolute inset-0 -z-10"
@@ -138,9 +157,8 @@ export default function WorksPage() {
                                 style={{ width: "100%", height: "100%" }}
                             />
                             <span className="text-cyan-400 text-lg font-medium text-center transition-all duration-300 hover:drop-shadow-[0_0_12px_#00ffff]">
-    {model.name}
-</span>
-
+                                {model.name}
+                            </span>
                         </div>
                     ))}
                 </div>
@@ -149,7 +167,7 @@ export default function WorksPage() {
     );
 }
 
-// Project Card
+// Project Card Component
 function ProjectCard({ project, index }: { project: any; index: number }) {
     const [hovered, setHovered] = React.useState(false);
 
@@ -158,17 +176,14 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.05 }} // only initial fade-in
-            whileHover={{ scale: 1.06, transition: { duration: 0 } }} // instant zoom on hover
-            animate={{ scale: 1, transition: { duration: 0 } }} // instant zoom back on hover out
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+            whileHover={{ scale: 1.06, transition: { duration: 0 } }}
+            animate={{ scale: 1, transition: { duration: 0 } }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             className="bg-gray-800/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border border-gray-700 hover:border-cyan-400 hover:shadow-[0_0_20px_#00ffff] transition-all duration-300"
         >
-
-
-
-        <div className="relative w-full aspect-square overflow-hidden flex items-center justify-center bg-black">
+            <div className="relative w-full aspect-square overflow-hidden flex items-center justify-center bg-black">
                 {hovered && project.video ? (
                     <video
                         src={project.video}
@@ -198,7 +213,9 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                     {project.name}
                 </h3>
                 <p className="text-gray-400 text-sm mb-3">{project.tools}</p>
-                <p className="text-gray-300 text-sm leading-relaxed">{project.description}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                    {project.description}
+                </p>
             </div>
         </motion.div>
     );
