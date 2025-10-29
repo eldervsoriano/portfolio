@@ -1,12 +1,29 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 
-// Projects
+// ✅ Fix TypeScript for <model-viewer>
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            "model-viewer": React.DetailedHTMLProps<
+                React.HTMLAttributes<HTMLElement>,
+                HTMLElement
+            > & {
+                src?: string;
+                alt?: string;
+                poster?: string;
+                "auto-rotate"?: boolean;
+                "camera-controls"?: boolean;
+                ar?: boolean;
+            };
+        }
+    }
+}
+
+// ✅ Projects
 const projects = [
     {
         name: "Laro ng Bayan",
@@ -49,7 +66,7 @@ const projects = [
     },
 ];
 
-// 3D Models
+// ✅ 3D Models
 const models = [
     { src: "/Model/Graham-Rush-Beehive.glb", name: "Low Poly Beehive" },
     { src: "/Model/Graham-Rush-Chicken.glb", name: "Low Poly Chicken" },
@@ -61,59 +78,9 @@ const models = [
 ];
 
 export default function WorksPage() {
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const script = document.createElement("script");
-            script.type = "module";
-            script.src =
-                "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
-            document.body.appendChild(script);
-        }
-    }, []);
-
     return (
         <main className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 text-white overflow-hidden">
-            {/* Particles Background */}
-            <Particles
-                id="tsparticles"
-                init={loadSlim}
-                options={{
-                    background: { color: "transparent" },
-                    fpsLimit: 60,
-                    particles: {
-                        number: { value: 35 },
-                        color: { value: "#00ffff" },
-                        opacity: { value: 0.5 },
-                        size: { value: { min: 1, max: 3 } },
-                        move: {
-                            enable: true,
-                            speed: 0.4,
-                            random: true,
-                            outModes: { default: "out" },
-                        },
-                        links: {
-                            enable: true,
-                            distance: 150,
-                            color: "#00ffff",
-                            opacity: 0.2,
-                            width: 1,
-                        },
-                    },
-                    interactivity: {
-                        events: {
-                            onHover: { enable: true, mode: "repulse" },
-                            resize: { enable: true },
-                        },
-                        modes: {
-                            repulse: { distance: 100, duration: 0.4 },
-                        },
-                    },
-                    detectRetina: true,
-                }}
-                className="absolute inset-0 -z-10"
-            />
-
-            {/* Featured Projects */}
+            {/* 🌟 Featured Projects */}
             <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -131,7 +98,7 @@ export default function WorksPage() {
                 </div>
             </motion.section>
 
-            {/* 3D Showcase */}
+            {/* 🧊 3D Showcase */}
             <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -157,8 +124,8 @@ export default function WorksPage() {
                                 style={{ width: "100%", height: "100%" }}
                             />
                             <span className="text-cyan-400 text-lg font-medium text-center transition-all duration-300 hover:drop-shadow-[0_0_12px_#00ffff]">
-                                {model.name}
-                            </span>
+                {model.name}
+              </span>
                         </div>
                     ))}
                 </div>
@@ -167,7 +134,7 @@ export default function WorksPage() {
     );
 }
 
-// Project Card Component
+// ✅ Project Card Component
 function ProjectCard({ project, index }: { project: any; index: number }) {
     const [hovered, setHovered] = React.useState(false);
 
