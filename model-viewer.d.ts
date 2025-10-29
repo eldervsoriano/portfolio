@@ -1,4 +1,4 @@
-// global.d.ts
+// model-viewer.d.ts
 declare namespace JSX {
     interface IntrinsicElements {
         "model-viewer": React.DetailedHTMLProps<
@@ -7,10 +7,10 @@ declare namespace JSX {
         > & {
             src?: string;
             alt?: string;
-            poster?: string;
             "auto-rotate"?: boolean;
             "camera-controls"?: boolean;
             ar?: boolean;
+            style?: React.CSSProperties;
         };
     }
 }

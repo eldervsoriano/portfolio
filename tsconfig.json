@@ -36,9 +36,24 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     ".next\\dev/types/**/*.ts",
-    ".next\\dev/types/**/*.ts"
+    ".next\\dev/types/**/*.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "model-viewer.d.ts",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/types/**/*.d.ts",
+    "global.d.ts"  // Add this explicitly if needed
+
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
+
 }
+
+
