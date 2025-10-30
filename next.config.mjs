@@ -7,10 +7,9 @@ const nextConfig = {
                 hostname: "placehold.co",
             },
         ],
-        unoptimized: true, // Add this for better Vercel compatibility
+        unoptimized: true,
     },
-    // Add this
-    distDir: '.next',
+    distDir: ".next", // Correct output directory (no spaces)
 };
 
-module.exports = nextConfig;
+export default nextConfig;
