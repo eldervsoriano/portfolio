@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Gamepad2, Phone } from "lucide-react";
+import { Mail, Linkedin, Gamepad2 } from "lucide-react";
 
 export default function ContactPage() {
     return (
@@ -29,7 +29,6 @@ export default function ContactPage() {
                 Feel free to reach out through any of my links below — I’d love to hear from you!
             </motion.p>
 
-
             {/* Contact Links */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -37,13 +36,6 @@ export default function ContactPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="flex flex-col gap-6 w-full max-w-md mx-auto"
             >
-                {/** Contact Item */}
-                <ContactItem
-                    icon={<Phone className="w-6 h-6 text-cyan-400 drop-shadow-[0_0_8px_#00ffff]" />}
-                    title="Contact Number"
-                    subtitle="0976 666 3789"
-                    href="tel:09766663789"
-                />
                 <ContactItem
                     icon={<Mail className="w-6 h-6 text-cyan-400 drop-shadow-[0_0_8px_#00ffff]" />}
                     title="Email"
@@ -86,7 +78,17 @@ export default function ContactPage() {
     );
 }
 
-function ContactItem({ icon, title, subtitle, href }: { icon: React.ReactNode; title: string; subtitle: string; href: string }) {
+function ContactItem({
+                         icon,
+                         title,
+                         subtitle,
+                         href,
+                     }: {
+    icon: React.ReactNode;
+    title: string;
+    subtitle: string;
+    href: string;
+}) {
     return (
         <a
             href={href}
