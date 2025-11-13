@@ -7,15 +7,15 @@ export default function CertificatesAwardsSection() {
 
     const items = [
         {
-            src: "/Images/Certificates/Award.jpg",
-            title: "Laro ng Bayan Recognition",
-            organizer: "Recognition Event",
+            src: "/Social-Significance-Award-Laro-ng-Bayan.jpg",
+            title: "Social Significance Award: Laro ng Bayan",
+            organizer: "Awarding Event",
             date: "Oct 2025",
         },
         {
-            src: "/Images/Certificates/Nostaligic-Award-Laro-ng-Bayan.jpg",
+            src: "/Images/Certificates/Award.jpg",
             title: "Nostalgic-Aware: Laro ng Bayan",
-            organizer: "Recognition Event",
+            organizer: "Award Event",
             date: "Oct 2025",
         },
         {
