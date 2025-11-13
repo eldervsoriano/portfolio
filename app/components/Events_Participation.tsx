@@ -7,11 +7,18 @@ export default function CertificatesAwardsSection() {
 
     const items = [
         {
-            src: "/Social-Significance-Award-Laro-ng-Bayan.jpg",
+            src: "/Images/Certificates/Laro-ng-Bayan-Thesis-Defended.jpg",
+            title: "Laro ng Bayan - Thesis Defended",
+            organizer: "Jose Rizal University",
+            date: "Nov 2025",
+        },
+        {
+            src: "/Images/Certificates/Social-Significance-Award-Laro-ng-Bayan.jpg",
             title: "Social Significance Award: Laro ng Bayan",
             organizer: "Awarding Event",
-            date: "Oct 2025",
+            date: "Nov 2025",
         },
+
         {
             src: "/Images/Certificates/Award.jpg",
             title: "Nostalgic-Aware: Laro ng Bayan",
