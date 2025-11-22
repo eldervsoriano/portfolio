@@ -19,15 +19,25 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full flex justify-between items-center px-6 py-4
-                       backdrop-blur-md bg-gray-950/80 border-b border-gray-800
-                       sticky top-0 z-50 shadow-md"
+            className="
+                w-full
+                flex justify-between items-center
+                px-8 sm:px-6     /* bigger padding on mobile */
+                py-4
+                backdrop-blur-md bg-gray-950/80 border-b border-gray-800
+                sticky top-0 z-50 shadow-md
+            "
         >
             {/* Logo */}
-            <h1 className="text-xl sm:text-2xl font-bold text-blue-400 tracking-wide
-                           drop-shadow-[0_0_5px_rgba(34,211,238,0.7)]
-                           hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.9)]
-                           transition-all duration-300">
+            <h1
+                className="
+                    text-xl sm:text-2xl font-bold text-blue-400 tracking-wide
+                    drop-shadow-[0_0_5px_rgba(34,211,238,0.7)]
+                    hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.9)]
+                    transition-all duration-300
+                    mr-10 sm:mr-0       /* more space before Home on mobile */
+                "
+            >
                 Elder Soriano
             </h1>
 
@@ -35,7 +45,7 @@ export default function Navbar() {
             <div
                 className="
                     flex
-                    gap-4 sm:gap-8
+                    gap-6 sm:gap-8      /* more gap on mobile */
                     text-gray-300
                     text-sm sm:text-base
                 "
@@ -55,7 +65,6 @@ export default function Navbar() {
                         >
                             {link.name}
 
-                            {/* underline animation */}
                             <span
                                 className={`
                                     absolute left-0 -bottom-1 h-[2px] bg-blue-400 
